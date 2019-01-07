@@ -3,9 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Tools</title>
+    <script src="tools.js"></script>
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+
 </head>
 <body>
 <h1>Web Tools:</h1>
+<div class="dropdown" id="toolSelector">
+    <button class="dropbtn">Select Tool</button>
+    <div class="dropdown-content">
+        <a onclick="showMeasurementConverters()">Measurement Converters</a>
+        <a onclick="showMortgageCalculator()">Mortgage Calculator</a>
+    </div>
+</div>
+
+<div id="measurementConverters">
+    <h1>Measurement Converters:</h1>
+
+    <form id = "length">
+        Value:<input class = "startingValue" id = "startLength" oninput="convertLength();">
+        <select class = "startingUnit" id="startLengthUnit" oninput="convertLength();">
+            <option value = "meter"> meter </option>
+            <option value = "kilometer"> kilometer</option>
+            <option value = "centimeter"> centimeter </option>
+        </select>
+        Value:<input class = "endingValue" id = "endLength" disabled>
+        <select class = "endingUnit" id="endLengthUnit" oninput="convertLength();">
+            <option value = "meter"> meter </option>
+            <option value = "kilometer"> kilometer</option>
+            <option value = "centimeter"> centimeter </option>
+        </select>
+    </form>
+
+    <form id = "weight">
+        Value:<input class = "startingValue">
+        <select class = "startingUnit">
+            <option value = "gram"> gram </option>
+            <option value = "kilogram"> kilogram</option>
+            <option value = "tonne"> Tonne </option>
+        </select>
+        Value:<input class = "endingValue">
+        <select class = "endingUnit">
+            <option value = "gram"> gram </option>
+            <option value = "kilogram"> kilogram</option>
+            <option value = "tonne"> Tonne </option>
+        </select>
+    </form>
+
+    <form id = "area">
+        Value:<input class = "startingValue">
+        <select class = "startingUnit">
+            <option value = "squareMeter"> square meter </option>
+            <option value = "squareKilometer"> square kilometer </option>
+            <option value = "squareMile"> square mile </option>
+        </select>
+        Value:<input class = "endingValue">
+        <select class = "endingUnit">
+            <option value = "squareMeter"> square meter </option>
+            <option value = "squareKilometer"> square kilometer </option>
+            <option value = "squareMile"> square mile </option>
+        </select>
+    </form>
+
+    <form id = "volume">
+        Value:<input class = "startingValue">
+        <select class = "startingUnit">
+            <option value = "litre"> litre </option>
+            <option value = "cubicMeter"> cubic meter </option>
+            <option value = "millilitre"> millilitre </option>
+        </select>
+        Value:<input class = "endingValue">
+        <select class = "endingUnit">
+            <option value = "litre"> litre </option>
+            <option value = "cubicMeter"> cubic meter </option>
+            <option value = "millilitre"> millilitre </option>
+        </select>
+    </form>
+
+</div>
+
+<div id="mortgageCalculator" style = "display : none">
+    <h1>Mortgage Calculator:</h1>
+
+    <form>
+        Home Value: $<input id="homeValue">
+        Down Payment: $<input id="downPayment">
+        Loan Amount: $<input id="loanAmount">
+        Interest Rate: <input id="interestRate">%
+    </form>
+</div>
+
+<h2 id="test"></h2>
 
 
 </body>
