@@ -18,7 +18,42 @@ function showMortgageCalculator()
 } // end function showAddressBook
 
 function convertLength(){
-    
+
+    var startUnit = document.getElementById( "startLengthUnit" ).value;
+    var endUnit = document.getElementById( "endLengthUnit" ).value;
+    var startValue = document.getElementById( "startLength" ).value;
+    console.log(startUnit);
+    if(startUnit == "meter" && endUnit == "meter") document.getElementById( "endLength" ).value = startValue;
+    if(startUnit=="meter" && endUnit=="centimeter") document.getElementById( "endLength" ).value = startValue*100;
+    if(startUnit=="meter" && endUnit=="kilometer") document.getElementById( "endLength" ).value = startValue/1000;
+    if(startUnit == "kilometer" && endUnit == "kilometer") document.getElementById( "endLength" ).value = startValue;
+    if(startUnit=="kilometer" && endUnit=="meter") document.getElementById( "endLength" ).value = startValue*1000;
+    if(startUnit == "kilometer" && endUnit == "centimeter") document.getElementById( "endLength" ).value = startValue*100000;
+    if(startUnit == "centimeter" && endUnit == "centimeter") document.getElementById( "endLength" ).value = startValue;
+    if(startUnit=="centimeter" && endUnit=="meter") document.getElementById( "endLength" ).value = startValue/100;
+    if(startUnit == "centimeter" && endUnit == "kilometer") document.getElementById( "endLength" ).value = startValue/100000;
+}
+
+function convertWeight(){
+
+    var startUnit = document.getElementById( "startWeightUnit" ).value;
+    var endUnit = document.getElementById( "endWeightUnit" ).value;
+    var startValue = document.getElementById( "startWeight" ).value;
+    //console.log(startUnit);
+    if(startUnit == "gram" && endUnit == "gram") document.getElementById( "endWeight" ).value = startValue;
+    if(startUnit=="gram" && endUnit=="tonne") document.getElementById( "endWeight" ).value = startValue/1000000;
+    if(startUnit=="gram" && endUnit=="kilogram") document.getElementById( "endWeight" ).value = startValue/1000;
+    if(startUnit == "kilogram" && endUnit == "kilogram") document.getElementById( "endWeight" ).value = startValue;
+    if(startUnit=="kilogram" && endUnit=="gram") document.getElementById( "endWeight" ).value = startValue*1000;
+    if(startUnit == "kilogram" && endUnit == "tonne") document.getElementById( "endWeight" ).value = startValue/1000;
+    if(startUnit == "tonne" && endUnit == "tonne") document.getElementById( "endWeight" ).value = startValue;
+    if(startUnit=="tonne" && endUnit=="gram") document.getElementById( "endWeight" ).value = startValue*1000000;
+    if(startUnit == "tonne" && endUnit == "kilogram") document.getElementById( "endWeight" ).value = startValue*1000;
+}
+
+
+function convertArea(){
+
     var startUnit = document.getElementById( "startLengthUnit" ).value;
     var endUnit = document.getElementById( "endLengthUnit" ).value;
     var startValue = document.getElementById( "startLength" ).value;
@@ -34,7 +69,8 @@ function convertLength(){
     if(startUnit == "centimeter" && endUnit == "kilometer") document.getElementById( "endLength" ).value = startValue/100000;
 }
 
-function convertWeight(){
+
+function convertVolume(){
 
     var startUnit = document.getElementById( "startLengthUnit" ).value;
     var endUnit = document.getElementById( "endLengthUnit" ).value;

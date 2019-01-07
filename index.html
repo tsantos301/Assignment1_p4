@@ -62,7 +62,7 @@
             <option value = "kilometer"> kilometer</option>
             <option value = "centimeter"> centimeter </option>
         </select>
-        Value:<input class = "endingValue" id = "endLength" disabled>
+        = <input class = "endingValue" id="endLength" disabled>
         <select class = "endingUnit" id="endLengthUnit" oninput="convertLength();">
             <option value = "meter"> meter </option>
             <option value = "kilometer"> kilometer</option>
@@ -71,14 +71,14 @@
     </form>
 
     <form id = "weight">
-        Value:<input class = "startingValue">
-        <select class = "startingUnit">
+        Value:<input class = "startingValue" id = "startWeight" oninput="convertWeight();">
+        <select class = "startingUnit" id="startWeightUnit" oninput="convertWeight();">
             <option value = "gram"> gram </option>
             <option value = "kilogram"> kilogram</option>
             <option value = "tonne"> Tonne </option>
         </select>
-        Value:<input class = "endingValue">
-        <select class = "endingUnit">
+        = <input class = "endingValue" id="endWeight" disabled>
+        <select class = "endingUnit" id="endWeightUnit" oninput="convertWeight()">
             <option value = "gram"> gram </option>
             <option value = "kilogram"> kilogram</option>
             <option value = "tonne"> Tonne </option>
@@ -86,14 +86,14 @@
     </form>
 
     <form id = "area">
-        Value:<input class = "startingValue">
-        <select class = "startingUnit">
+        Value:<input class = "startingValue" id = "startArea" oninput="convertArea();">
+        <select class = "startingUnit" id="startAreaUnit" oninput="convertArea();">
             <option value = "squareMeter"> square meter </option>
             <option value = "squareKilometer"> square kilometer </option>
             <option value = "squareMile"> square mile </option>
         </select>
-        Value:<input class = "endingValue">
-        <select class = "endingUnit">
+        = <input class = "endingValue" id="endArea" disabled>
+        <select class = "endingUnit" id="endAreaUnit" oninput="convertArea()">
             <option value = "squareMeter"> square meter </option>
             <option value = "squareKilometer"> square kilometer </option>
             <option value = "squareMile"> square mile </option>
@@ -101,14 +101,14 @@
     </form>
 
     <form id = "volume">
-        Value:<input class = "startingValue">
-        <select class = "startingUnit">
+        Value:<input class = "startingValue" id = "startVolume" oninput="convertVolume();">
+        <select class = "startingUnit" id="startVolumeUnit" oninput="convertVolume();">
             <option value = "litre"> litre </option>
             <option value = "cubicMeter"> cubic meter </option>
             <option value = "millilitre"> millilitre </option>
         </select>
-        Value:<input class = "endingValue">
-        <select class = "endingUnit">
+        = <input class = "endingValue" id="endVolume" disabled>
+        <select class = "endingUnit" id="endVolumeUnit" oninput="convertVolume()">
             <option value = "litre"> litre </option>
             <option value = "cubicMeter"> cubic meter </option>
             <option value = "millilitre"> millilitre </option>
