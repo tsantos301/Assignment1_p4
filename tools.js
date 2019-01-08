@@ -72,17 +72,17 @@ function convertArea(){
 
 function convertVolume(){
 
-    var startUnit = document.getElementById( "startLengthUnit" ).value;
-    var endUnit = document.getElementById( "endLengthUnit" ).value;
-    var startValue = document.getElementById( "startLength" ).value;
+    var startUnit = document.getElementById( "startVolumeUnit" ).value;
+    var endUnit = document.getElementById( "endVolumeUnit" ).value;
+    var startValue = document.getElementById( "startVolume" ).value;
     //console.log(startUnit);
-    if(startUnit == "meter" && endUnit == "meter") document.getElementById( "endLength" ).value = startValue;
-    if(startUnit=="meter" && endUnit=="centimeter") document.getElementById( "endLength" ).value = startValue*100;
-    if(startUnit=="meter" && endUnit=="kilometer") document.getElementById( "endLength" ).value = startValue/1000;
-    if(startUnit == "kilometer" && endUnit == "kilometer") document.getElementById( "endLength" ).value = startValue;
-    if(startUnit=="kilometer" && endUnit=="meter") document.getElementById( "endLength" ).value = startValue*1000;
-    if(startUnit == "kilometer" && endUnit == "centimeter") document.getElementById( "endLength" ).value = startValue*100000;
-    if(startUnit == "centimeter" && endUnit == "centimeter") document.getElementById( "endLength" ).value = startValue;
-    if(startUnit=="centimeter" && endUnit=="meter") document.getElementById( "endLength" ).value = startValue/100;
-    if(startUnit == "centimeter" && endUnit == "kilometer") document.getElementById( "endLength" ).value = startValue/100000;
+    if(startUnit == "litre" && endUnit == "litre") document.getElementById( "endVolume" ).value = startValue;
+    if(startUnit=="litre" && endUnit=="cubicMeter") document.getElementById( "endVolume" ).value = startValue/1000;
+    if(startUnit=="litre" && endUnit=="millilitre") document.getElementById( "endVolume" ).value = startValue*1000;
+    if(startUnit == "millilitre" && endUnit == "millilitre") document.getElementById( "endVolume" ).value = startValue;
+    if(startUnit=="millilitre" && endUnit=="litre") document.getElementById( "endVolume" ).value = startValue/1000;
+    if(startUnit == "millilitre" && endUnit == "cubicMeter") document.getElementById( "endVolume" ).value = startValue/1e+6;
+    if(startUnit == "cubicMeter" && endUnit == "cubicMeter") document.getElementById( "endVolume" ).value = startValue;
+    if(startUnit=="cubicMeter" && endUnit=="litre") document.getElementById( "endVolume" ).value = startValue*1000;
+    if(startUnit == "cubicMeter" && endUnit == "millilitre") document.getElementById( "endVolume" ).value = startValue*1e+6;
 }
