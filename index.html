@@ -132,14 +132,14 @@
 </div>
 
 <div id="mortgageCalculator" style = "display : none">
-    <h1>Mortgage Calculator:</h1>
+    <h1>Mortgage Payment Calculator:</h1>
 
     <form>
-        Home Value: $<input id="homeValue">
-        Down Payment: $<input id="downPayment">
-        Loan Amount: $<input id="loanAmount">
-        Interest Rate: <input id="interestRate">%
+        Number of Payments: $<input id="payments" oninput="calculateMortgagePayments()">
+        Loan Amount: $<input id="loanAmount" oninput="calculateMortgagePayments()">
+        Interest Rate: <input id="interestRate" oninput="calculateMortgagePayments()">%
     </form>
+    <h1>Monthly Payment Amount:</h1> <h1 id="monthlyPayment"></h1>
 </div>
 
 <h2 id="test"></h2>

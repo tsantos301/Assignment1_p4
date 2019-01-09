@@ -14,7 +14,6 @@ function showMortgageCalculator()
     document.getElementById( "measurementConverters" ).style.display = "none";
     document.getElementById( "mortgageCalculator" ).style.display = "block";
 
-    callWebService( "/getAllNames", parseData );
 } // end function showAddressBook
 
 function convertLength(){
@@ -85,4 +84,18 @@ function convertVolume(){
     if(startUnit == "cubicMeter" && endUnit == "cubicMeter") document.getElementById( "endVolume" ).value = startValue;
     if(startUnit=="cubicMeter" && endUnit=="litre") document.getElementById( "endVolume" ).value = startValue*1000;
     if(startUnit == "cubicMeter" && endUnit == "millilitre") document.getElementById( "endVolume" ).value = startValue*1e+6;
+}
+
+function calculateMortgagePayments(){
+    var principal = parseFloat(document.getElementById( "loanAmount" ).value);
+    var monthlyInterestRate = parseFloat(document.getElementById( "interestRate" ).value);
+    var numPayments = parseFloat(document.getElementById( "payments" ).value);
+    console.log("This is principal" + principal);
+    console.log("This is monthlyInterestRate" + monthlyInterestRate);
+    console.log("This is numPayments" + numPayments);
+    console.log(1+monthlyInterestRate);
+    console.log((Math.pow((1+monthlyInterestRate),numPayments))-1);
+    var monthlyPayment = principal * ( monthlyInterestRate * (Math.pow((1+monthlyInterestRate),numPayments) ) /
+                                                            ( (Math.pow((1+monthlyInterestRate),numPayments))-1) );
+    document.getElementById( "monthlyPayment" ).innerHTML= monthlyPayment;
 }
