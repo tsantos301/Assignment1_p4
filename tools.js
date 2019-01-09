@@ -89,6 +89,7 @@ function convertVolume(){
 function calculateMortgagePayments(){
     var principal = parseFloat(document.getElementById( "loanAmount" ).value);
     var monthlyInterestRate = parseFloat(document.getElementById( "interestRate" ).value);
+    monthlyInterestRate /= 100;
     var numPayments = parseFloat(document.getElementById( "payments" ).value);
     console.log("This is principal" + principal);
     console.log("This is monthlyInterestRate" + monthlyInterestRate);
