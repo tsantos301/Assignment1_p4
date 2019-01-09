@@ -4,17 +4,21 @@ function showMeasurementConverters()
     // hide the "addEntry" form and show the address book
     document.getElementById( "measurementConverters" ).style.display = "block";
     document.getElementById( "mortgageCalculator" ).style.display = "none";
-
-    //callWebService( "/getAllNames", parseData );
-} // end function showAddressBook
+    document.getElementById( "ASCIIConverter" ).style.display = "none";
+}
 
 function showMortgageCalculator()
 {
     // hide the "addEntry" form and show the address book
     document.getElementById( "measurementConverters" ).style.display = "none";
     document.getElementById( "mortgageCalculator" ).style.display = "block";
-
-} // end function showAddressBook
+    document.getElementById( "ASCIIConverter" ).style.display = "none";
+}
+function showASCIIConverter(){
+    document.getElementById( "measurementConverters" ).style.display = "none";
+    document.getElementById( "mortgageCalculator" ).style.display = "none";
+    document.getElementById( "ASCIIConverter" ).style.display = "block";
+}
 
 function convertLength(){
 
@@ -98,5 +102,42 @@ function calculateMortgagePayments(){
     console.log((Math.pow((1+monthlyInterestRate),numPayments))-1);
     var monthlyPayment = principal * ( monthlyInterestRate * (Math.pow((1+monthlyInterestRate),numPayments) ) /
                                                             ( (Math.pow((1+monthlyInterestRate),numPayments))-1) );
-    document.getElementById( "monthlyPayment" ).innerHTML= monthlyPayment;
+    document.getElementById( "monthlyPayment" ).innerHTML= Math.round(monthlyPayment * 100) / 100;
 }
+
+function encrypt(){
+    var result = '';
+    var binaryResult ='';
+    var plainText = document.getElementById("plainText").value;
+    var index = parseInt(document.getElementById("index").value);
+    console.log(index);
+    console.log("Text: " + plainText);
+    for(let i =0;i<plainText.length;i++){
+        var character = plainText[i];
+        console.log("Character:"+ character);
+        //if the character is a letter of the alphabet then shift it, if not leave it as it is.
+        if (character.match(/[a-z]/i)) {
+            var asciiValue = parseInt(plainText.charCodeAt(i)); //get the ascii value for the character
+            console.log("ASCII VALUE: " + asciiValue);
+
+            if(asciiValue >= 97 && asciiValue <= 122){ //lowercase letters only in this range
+                asciiValue = asciiValue + index;
+                console.log("ascii value after shift: "+ asciiValue);
+                character = String.fromCharCode(asciiValue);
+                console.log(character);
+                result += character;
+            }
+
+        }
+    }
+
+    for(let i =0;i<result.length;i++){
+        binaryResult += result[i].charCodeAt(0).toString(2)+" ";
+        console.log("this is ascii value of encrypted char:"+binaryResult);
+
+        //binaryResult=binaryResult.value;
+        console.log("This is binary"+binaryResult);
+    }
+    document.getElementById("output").value = binaryResult;
+
+    }

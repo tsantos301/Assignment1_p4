@@ -15,6 +15,15 @@
         input{
             margin: 10px;
             font-size: 16px;
+            size: auto;
+        }
+        #output{
+            margin: 10px;
+            font-size: 16px;
+            size: auto;
+            width: 600px;
+            height: 500px;
+
         }
         select{
             font-size: 40px;
@@ -63,6 +72,7 @@
     <div class="dropdown-content">
         <a onclick="showMeasurementConverters()">Measurement Converters</a>
         <a onclick="showMortgageCalculator()">Mortgage Calculator</a>
+        <a onclick="showASCIIConverter()">Encrypt Text</a>
     </div>
 </div>
 
@@ -142,8 +152,15 @@
     <h1>Monthly Payment Amount:</h1> <h1 id="monthlyPayment"></h1>
 </div>
 
-<h2 id="test"></h2>
+<div id="ASCIIConverter" style = "display : none">
+    <h1>Encryption using Caesar Cypher and Conversion to Binary:</h1>
 
+    <form>
+        Text to encrypt: <input id="plainText" oninput="encrypt()">
+        Shift Amount: <input id="index" oninput="encrypt()" maxlength="25">
+        <br>Encrypted Message:<br> <textarea id="output" disabled></textarea>
+    </form>
+</div>
 
 </body>
 </html>
