@@ -114,11 +114,13 @@ function encrypt(){
     console.log("Text: " + plainText);
     for(let i =0;i<plainText.length;i++){
         var character = plainText[i];
+        var asciiValue;
         console.log("Character:"+ character);
+
         //if the character is a letter of the alphabet then shift it, if not leave it as it is.
         if (character.match(/[a-z]/i)) {
-            var asciiValue = parseInt(plainText.charCodeAt(i)); //get the ascii value for the character
-            console.log("ASCII VALUE: " + asciiValue);
+            asciiValue = parseInt(plainText.charCodeAt(i)); //get the ascii value for the character
+            //console.log("ASCII VALUE: " + asciiValue);
 
             if(asciiValue >= 97 && asciiValue <= 122){ //lowercase letters only in this range
                 if(asciiValue+index >122){
@@ -126,6 +128,27 @@ function encrypt(){
                     asciiValue = 97 + wrap;
                 }
                 else{ asciiValue = asciiValue + index;}
+                //console.log("ascii value after shift: "+ asciiValue);
+                character = String.fromCharCode(asciiValue);
+               // console.log(character);
+                result += character;
+            }
+
+        }
+
+        //Same thing for captial letters
+        if (character.match(/[A-Z]/i)) {
+            console.log("UPPERCASE");
+            asciiValue = parseInt(plainText.charCodeAt(i)); //get the ascii value for the character
+            console.log("ASCII VALUE: " + asciiValue);
+
+            if(asciiValue >= 65 && asciiValue <= 90){ //lowercase letters only in this range
+                if(asciiValue+index >122){
+                    var wrap = (asciiValue+index)-91;
+                    asciiValue = 65 + wrap;
+                }
+                else{
+                    asciiValue = asciiValue + index;}
                 console.log("ascii value after shift: "+ asciiValue);
                 character = String.fromCharCode(asciiValue);
                 console.log(character);
@@ -133,6 +156,8 @@ function encrypt(){
             }
 
         }
+
+        //If a symbol or non letter is entered it is left as is
     }
 
     for(let i =0;i<result.length;i++){
