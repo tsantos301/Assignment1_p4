@@ -121,7 +121,11 @@ function encrypt(){
             console.log("ASCII VALUE: " + asciiValue);
 
             if(asciiValue >= 97 && asciiValue <= 122){ //lowercase letters only in this range
-                asciiValue = asciiValue + index;
+                if(asciiValue+index >122){
+                    var wrap = (asciiValue+index)-123;
+                    asciiValue = 97 + wrap;
+                }
+                else{ asciiValue = asciiValue + index;}
                 console.log("ascii value after shift: "+ asciiValue);
                 character = String.fromCharCode(asciiValue);
                 console.log(character);

@@ -157,9 +157,12 @@
 
     <form>
         Text to encrypt: <input id="plainText" oninput="encrypt()">
-        Shift Amount: <input id="index" oninput="encrypt()" maxlength="25">
+        Shift Amount: <input id="index" oninput="encrypt()" maxlength="25" minlength="0">
         <br>Encrypted Message:<br> <textarea id="output" disabled></textarea>
     </form>
+    <br><h1>Decrypting</h1>
+    <a href="https://www.rapidtables.com/convert/number/binary-to-ascii.html" target="_blank" >Convert the Binary to Text Here.</a>
+    <br><a href="https://cryptii.com/pipes/caesar-cipher" target="_blank" >Revert the Cipher Here.</a>
 </div>
 
 </body>
